@@ -1,5 +1,9 @@
 package net.kenji.ef_uchigatana_adjustments;
 
+import com.asanginxst.epicfightx.gameassets.EFXSkillDataKeys;
+import com.asanginxst.epicfightx.gameassets.EpicFightSkillsX;
+import com.hm.efn.gameasset.EFNSKillDataKeys;
+import com.hm.efn.gameasset.combos.HfBlade;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -11,6 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
 import org.slf4j.Logger;
@@ -29,6 +34,10 @@ public class EpicFightUchigatanaAdjustments {
     }
     public static final boolean EFX_LOADED =
             isLoaded("epicfightx");
+    public static final boolean SS_LOADED =
+            isLoaded("sword_soaring");
+    public static final boolean EFN_LOADED =
+            isLoaded("efn");
 
     public EpicFightUchigatanaAdjustments() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -40,8 +49,20 @@ public class EpicFightUchigatanaAdjustments {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.SPEC, "ef_uchigatana_adjustments-common.toml");
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-
+    private void commonSetup(final FMLLoadCompleteEvent event) {
+        if (EFX_LOADED) {
+            ClientSheathSync.register(
+                    () -> EpicFightSkillsX.BATTOJUTSU_PASSIVE,
+                    EFXSkillDataKeys.SHEATH,
+                    "sheath");
+        }
+        if (EFN_LOADED) {
+            ClientSheathSync.register(
+                    () -> HfBlade.HfBlade_Passive,
+                    EFNSKillDataKeys.MURASAMA_SHEATH,
+                    "murasama_sheath");
+            // MurasamaPassive shares the same key and tag, so add a second entry with its own skill field
+        }
     }
 
     // Add the example block item to the building blocks tab

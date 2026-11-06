@@ -174,6 +174,13 @@ dependencies {
 
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:8049910")
     implementation fg.deobf("curse.maven:epicfight-extra-1434276:8681446")
+    implementation fg.deobf("curse.maven:sword-soaring-1011068:7984120")
+    compileOnly fg.deobf("curse.maven:tcr-core-1325071:8671039")
+    implementation fg.deobf("curse.maven:epic-fight-invincible-1184379:7679941")
+
+    implementation fg.deobf("curse.maven:epicfight-nightfall-1307848:9015395")
+    implementation fg.deobf("curse.maven:epic-fight-invincible-1184379:7679941")
+    implementation fg.deobf("curse.maven:epic-fight-avalon-1268823:8849430")
 
 }
 
