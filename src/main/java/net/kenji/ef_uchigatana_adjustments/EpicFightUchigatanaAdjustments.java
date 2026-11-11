@@ -14,7 +14,6 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -43,20 +42,20 @@ public class EpicFightUchigatanaAdjustments {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::loadCompleteSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.SPEC, "ef_uchigatana_adjustments-common.toml");
     }
 
-    private void commonSetup(final FMLLoadCompleteEvent event) {
+    private void loadCompleteSetup(final FMLLoadCompleteEvent event) {
         if (EFX_LOADED) {
             ClientSheathSync.register(
                     () -> EpicFightSkillsX.BATTOJUTSU_PASSIVE,
                     EFXSkillDataKeys.SHEATH,
                     "sheath");
         }
-        if (EFN_LOADED) {
+        if (EFN_LOADED && ConfigCommon.EFN_SHEATHED_HF_BLADE_COMPAT.get()) {
             ClientSheathSync.register(
                     () -> HfBlade.HfBlade_Passive,
                     EFNSKillDataKeys.MURASAMA_SHEATH,

@@ -39,7 +39,10 @@ public class CompatMixinPlugin implements IMixinConfigPlugin {
         if(!EpicFightUchigatanaAdjustments.EFN_LOADED){
             if(mixinClassName.endsWith("MixinRenderMurasama"))
                 return false;
-
+            if(mixinClassName.endsWith("MixinHFBladePassive"))
+                return false;
+            if(mixinClassName.endsWith("MixinMurasamaSheathEffect"))
+                return false;
         }
         return true;
     }
