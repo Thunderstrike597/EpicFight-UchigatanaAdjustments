@@ -7,17 +7,16 @@
   "mixins": [
     "compat.AccessorRenderUchigatanaX",
     "compat.MixinBattojutsuPassiveX",
-    "compat.MixinRenderUchigatanaX",
-    "compat.efn.MixinRenderMurasama",
     "compat.efn.MixinHFBladePassive",
-    "compat.efn.MixinMurasamaSheathEffect",
     "compat.efn.MixinEFNWeaponCapabilityPresets",
     "MixinBattojutsuPassive",
     "MixinGuard"
-
   ],
   "client": [
-
+    "compat.MixinRenderUchigatanaX",
+    "compat.efn.MixinRenderMurasama",
+    "compat.efn.MixinMurasamaSheathEffect",
+    "compat.efn.MixinRenderYamato"
   ],
   "injectors": {
     "defaultRequire": 1

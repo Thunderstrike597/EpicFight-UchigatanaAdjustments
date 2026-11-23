@@ -19,6 +19,8 @@ public class EFNCompat {
                     return AnimationsX.BIPED_RUN_UCHIGATANA_SHEATHING;
                 } else if (livingMotion.equals(LivingMotions.JUMP)) {
                     return AnimationsX.BIPED_JUMP;
+                } else if (livingMotion.equals(LivingMotions.FALL)) {
+                    return AnimationsX.BIPED_FALL;
                 }
             }
         }

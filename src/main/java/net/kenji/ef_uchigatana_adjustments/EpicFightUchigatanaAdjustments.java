@@ -60,7 +60,6 @@ public class EpicFightUchigatanaAdjustments {
                     () -> HfBlade.HfBlade_Passive,
                     EFNSKillDataKeys.MURASAMA_SHEATH,
                     "murasama_sheath");
-            // MurasamaPassive shares the same key and tag, so add a second entry with its own skill field
         }
     }
 

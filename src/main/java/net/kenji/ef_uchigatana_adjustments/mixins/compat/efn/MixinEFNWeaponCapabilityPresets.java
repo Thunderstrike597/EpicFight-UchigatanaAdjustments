@@ -94,7 +94,7 @@ public class MixinEFNWeaponCapabilityPresets {
            .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.SWIM, EFNHfBladeAnimations.HF_BLADE_IDLE_SHEATH)
            .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.FLOAT, EFNHfBladeAnimations.HF_BLADE_IDLE_SHEATH)
            .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.JUMP, EFNCompat.getHFBladeSwapAnimation(LivingMotions.JUMP, Animations.BIPED_JUMP))
-           .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.FALL, EFNHfBladeAnimations.HF_BLADE_FALL_FIRST)
+           .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.FALL, EFNCompat.getHFBladeSwapAnimation(LivingMotions.FALL, EFNHfBladeAnimations.HF_BLADE_FALL_FIRST))
            .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.WALK, EFNHfBladeAnimations.HF_BLADE_WALK_SHEATH)
            .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.CHASE, EFNHfBladeAnimations.HF_BLADE_RUN_SHEATH)
            .livingMotionModifier(CapabilityItem.Styles.SHEATH, LivingMotions.RUN, EFNCompat.getHFBladeSwapAnimation(LivingMotions.RUN, EFNHfBladeAnimations.HF_BLADE_RUN_SHEATH))
